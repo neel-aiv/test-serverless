@@ -22,10 +22,8 @@ jobs:
     - name: AWS credentials configration
       uses: aws-actions
       with:
-        # aws-access-key-id: AKIAZQ3DTLBOXQUIPJY7
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        # aws-secret-access-key: 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
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-key-id: 
+        aws-secret-access-key: 
         aws-region: us-east-1
 
     - name: Install Serverless Framework
