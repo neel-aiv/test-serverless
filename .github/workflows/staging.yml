@@ -1,4 +1,4 @@
-name: deploy
+name: deploy-staging
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
         run: go build -o bootstrap .
 
       - name: Deploy to staging stage
-        run: serverless deploy function -f Serverless-Test --stage staging
+        run: sls deploy function -f Serverless-Test --stage staging
 
         env:  
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  
