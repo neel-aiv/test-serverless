@@ -1,0 +1,38 @@
+name: deploy
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy_lambda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Nodejs setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.0'
+
+      - name: Go setup
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.23.0'
+      
+      - name: AWS credentials configration
+        uses: aws-actions
+        with:
+          aws-access-key-id: 
+          aws-secret-access-key:
+          aws-region: us-east-1
+
+      - name: Install Serverless Framework
+        run: npm install -g serverless
+      
+      - name: Update bootstrap file
+        run: go build -o bootstrap .
+
+      - name: Deploy to staging stage
+        run: serverless deploy Serverless-Test --stage staging

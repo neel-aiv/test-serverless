@@ -1,0 +1,9 @@
+service: Serverless-Test
+
+provider:
+  name: aws
+  runtime: Amazon Linux 2023
+
+functions:
+  Serverless-Test:
+    handler: hello.handler
