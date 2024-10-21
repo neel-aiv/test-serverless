@@ -27,6 +27,9 @@ jobs:
       - name: Update bootstrap file
         run: go build -o bootstrap .
 
+      - name: Deploy function
+        run: serverless deploy
+
       - name: Deploy to staging stage
         run: sls deploy function -f Serverless-Test --stage staging
 
