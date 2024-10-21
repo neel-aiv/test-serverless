@@ -28,7 +28,7 @@ jobs:
         run: go build -o bootstrap .
 
       - name: Deploy to staging stage
-        run: sls deploy function -f Serverless --stage Test
+        run: sls deploy function -f Serverless-Test --stage staging
 
         env:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
