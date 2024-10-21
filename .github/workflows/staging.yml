@@ -30,6 +30,10 @@ jobs:
       - name: Deploy function
         run: serverless deploy
 
+        env:
+          AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
       - name: Deploy to staging stage
         run: sls deploy function -f Serverless-Test --stage staging
 
